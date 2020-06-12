@@ -16,7 +16,7 @@
       "url" : "http://gustavorodriguez.com.uy"
    },
   "dependencies": {
-	"@gustavguez/ngx-core": "^1.0.2",
+	"@gustavguez/ngx-core": "^1.0.3",
 	"angular-2-local-storage": "^3.0.2"
   }
 }
