@@ -1,9 +1,22 @@
 {
   "name": "@gustavguez/ngx-auth",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
     "tslib": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gustavguez/auth-library"
+  },
+  "author": { 
+      "name" : "Gustavo Rodríguez", 
+      "email" : "gustavguez@gmail.com", 
+      "url" : "http://gustavorodriguez.com.uy"
+   },
+  "dependencies": {
+	"@gustavguez/ngx-core": "^1.0.2",
+	"angular-2-local-storage": "^3.0.2"
   }
 }

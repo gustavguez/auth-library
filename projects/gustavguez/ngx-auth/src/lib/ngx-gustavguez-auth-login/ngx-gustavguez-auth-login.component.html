@@ -1,0 +1,37 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+					
+	<div class="logo text-center">
+		<div 
+			[style.background]="'url(' + (lastAvatar ? lastAvatar : 'assets/images/logo.png') + ')'" 
+			class="img rounded-circle border border-dark"></div>
+	</div>
+
+	<ngx-gustavguez-input-holder 
+		controlName="username"
+		[form]="form">
+		<input 
+			type="text" 
+			class="form-control" 
+			formControlName="username"
+			type="text" 
+			(change)="onUsernameChange()"
+			[placeholder]="usernamePlaceholder ? usernamePlaceholder : ''">
+	</ngx-gustavguez-input-holder>
+
+	<ngx-gustavguez-input-holder 
+		controlName="password"
+		[form]="form">
+		<input 
+			type="password" 
+			class="form-control" 
+			formControlName="password"
+			[placeholder]="passwordPlaceholder ? passwordPlaceholder : ''" 
+			autocomplete="false">
+	</ngx-gustavguez-input-holder>
+	
+	<div class="form-group">
+		<ngx-gustavguez-submit 
+			[loading]="loading"
+			[text]="submitText ? submitText : 'Login'"></ngx-gustavguez-submit>
+	</div>      
+</form>
