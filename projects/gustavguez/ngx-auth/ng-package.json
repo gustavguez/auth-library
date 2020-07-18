@@ -6,6 +6,6 @@
   },
   "whitelistedNonPeerDependencies": [
 	"@gustavguez/ngx-core",
-	"angular-2-local-storage"
+	"ngx-webstorage"
   ]
 }

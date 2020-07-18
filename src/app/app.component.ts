@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { AuthConfigModel, AuthService, AuthUserModel } from 'projects/gustavguez/ngx-auth/src/lib';
+import { environment } from '../environments/environment';
+import { AuthConfigModel, AuthService, AuthUserModel }  from '../../projects/gustavguez/ngx-auth/src/public-api';
 import { ApiService } from '@gustavguez/ngx-core';
 
 @Component({

@@ -2,9 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxGustavguezCoreModule} from '@gustavguez/ngx-core';
-import { LocalStorageModule } from 'angular-2-local-storage';
-
-import { NgxGustavguezAuthModule } from 'projects/gustavguez/ngx-auth/src/lib';
+import {NgxWebstorageModule} from 'ngx-webstorage';
+import { NgxGustavguezAuthModule } from '../../projects/gustavguez/ngx-auth/src/public-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,9 +16,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
 	AppRoutingModule,
 	HttpClientModule,
-	LocalStorageModule.forRoot({
+	NgxWebstorageModule.forRoot({
 		prefix: 'ngx-gustavguez-auth-module',
-		storageType: 'localStorage'
+		separator: '.'
 	}),
 	NgxGustavguezCoreModule,
 	NgxGustavguezAuthModule

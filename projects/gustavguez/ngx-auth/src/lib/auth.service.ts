@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { LocalStorageService } from 'angular-2-local-storage';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ApiService, ApiResponseModel } from '@gustavguez/ngx-core';
+import { LocalStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -95,7 +95,7 @@ export class AuthService {
 				map((response: ApiResponseModel) => {
 					// Save token to Local storage
 					if (response.data) {
-						this.storageService.set(this.config.accessTokenLsKey, response.data);
+						this.storageService.store(this.config.accessTokenLsKey, response.data);
 					}
 
 					// Creates the access token model
@@ -169,8 +169,8 @@ export class AuthService {
 				this.lastUser.username = this.user.username;
 
 				// Save to LS
-				this.storageService.set(this.config.lastMeAvatarLsKey, this.user.profileImage);
-				this.storageService.set(this.config.lastMeUsernameLsKey, this.user.username);
+				this.storageService.store(this.config.lastMeAvatarLsKey, this.user.profileImage);
+				this.storageService.store(this.config.lastMeUsernameLsKey, this.user.username);
 
 				// Restore
 				this.apiService.restoreApiResponseStrategy();
@@ -199,7 +199,7 @@ export class AuthService {
 					response.data.refresh_token = refreshToken;
 
 					// Save to LS
-					this.storageService.set(this.config.accessTokenLsKey, response.data);
+					this.storageService.store(this.config.accessTokenLsKey, response.data);
 				}
 
 				// Creates the access token model
@@ -218,9 +218,9 @@ export class AuthService {
 	public loadSession(): Observable<boolean> {
 		// Create an observable
 		const obs = new Observable<boolean>((observer: any) => {
-			const accessTokenLs: any = this.storageService.get(this.config.accessTokenLsKey);
-			const lastMeAvatar: string = this.storageService.get(this.config.lastMeAvatarLsKey);
-			const lastMeUsername: string = this.storageService.get(this.config.lastMeUsernameLsKey);
+			const accessTokenLs: any = this.storageService.retrieve(this.config.accessTokenLsKey);
+			const lastMeAvatar: string = this.storageService.retrieve(this.config.lastMeAvatarLsKey);
+			const lastMeUsername: string = this.storageService.retrieve(this.config.lastMeUsernameLsKey);
 			const completeObservable: Function = (result: boolean) => {
 				observer.next(result);
 				observer.complete();
@@ -280,7 +280,7 @@ export class AuthService {
 
 	public logout(): void {
 		// Clear Local storage
-		this.storageService.remove(this.config.accessTokenLsKey);
+		this.storageService.clear(this.config.accessTokenLsKey);
 
 		// Clear data in memory
 		this.user = null;

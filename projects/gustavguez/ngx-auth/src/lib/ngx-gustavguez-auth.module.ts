@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LocalStorageModule } from 'angular-2-local-storage';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 import { NgxGustavguezCoreModule } from '@gustavguez/ngx-core';
 
 import { AuthInterceptor } from './auth.interceptor';
@@ -13,7 +13,7 @@ import { NgxGustavguezAuthLoginComponent } from './ngx-gustavguez-auth-login/ngx
 	imports: [
 		CommonModule,
 		ReactiveFormsModule,
-		LocalStorageModule,
+		NgxWebstorageModule,
 		NgxGustavguezCoreModule
 	],
 	exports: [NgxGustavguezAuthLoginComponent],
