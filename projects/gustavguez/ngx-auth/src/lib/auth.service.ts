@@ -159,8 +159,8 @@ export class AuthService {
 
 	// Generate a access token
 	public requestMe(): Observable<AuthUserModel> {
-		// Set root strategy
-		this.apiService.changeApiResponseStrategy('data');
+		// Restore root strategy
+		this.apiService.restoreApiResponseStrategy();
 
 		// Do request
 		return this.apiService.fetchData(this.config.oauthMeUri).pipe(
