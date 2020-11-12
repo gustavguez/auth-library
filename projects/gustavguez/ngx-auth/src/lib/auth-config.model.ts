@@ -10,6 +10,7 @@ export class AuthConfigModel {
 		public lastMeUsernameLsKey?: string,
 		public oauthUri?: string,
 		public oauthRefreshUri?: string,
-		public oauthMeUri?: string
+		public oauthMeUri?: string,
+		public oauthType?: string,
 	) { }
 }

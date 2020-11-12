@@ -84,14 +84,27 @@ export class AuthService {
 			// Set root strategy
 			this.apiService.changeApiResponseStrategy('root');
 
-			// Request token
-			this.apiService.createObj(this.config.oauthUri, {
+			//Made object to send
+			const obj: any = {
 				username: loginUsername,
 				password: loginPassword,
 				grant_type: this.config.grantType,
 				client_id: this.config.clientId,
 				client_secret: this.config.clientSecret
-			}).pipe(
+			};
+			
+			//Check client secret
+			if(this.config.clientSecret){
+				obj.client_secret = this.config.clientSecret;
+			}
+
+			//Check oauth type
+			if(this.config.oauthType){
+				obj.oauth_type = this.config.oauthType;
+			}
+
+			// Request token
+			this.apiService.createObj(this.config.oauthUri, obj).pipe(
 				map((response: ApiResponseModel) => {
 					// Save token to Local storage
 					if (response.data) {
