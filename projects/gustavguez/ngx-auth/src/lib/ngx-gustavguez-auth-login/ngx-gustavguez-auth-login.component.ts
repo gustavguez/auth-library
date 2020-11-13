@@ -42,7 +42,7 @@ export class NgxGustavguezAuthLoginComponent implements OnInit {
 		if (this.authService.getLastUser() instanceof AuthLastUserModel) {
 			const lastMe: AuthLastUserModel = this.authService.getLastUser();
 
-			this.lastAvatar = this.imageUrl + lastMe.avatar;
+			this.lastAvatar =  lastMe.avatar ? this.imageUrl + lastMe.avatar : null;
 			this.lastUsername = lastMe.username;
 		}
 
