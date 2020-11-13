@@ -3,7 +3,7 @@ export class AuthUserModel {
 	constructor(
 		public id?: number,
 		public username?: string,
-		public firstName?: string,
+		public name?: string,
 		public lastName?: string,
 		public profileImage?: string,
 		public data?: any
@@ -13,9 +13,9 @@ export class AuthUserModel {
 		if (json) {
 			this.id = json.id;
 			this.username = json.username;
-			this.firstName = json.firstName;
-			this.lastName = json.lastName;
-			this.profileImage = json.profileImage;
+			this.name = json.name ? json.name : '';
+			this.lastName = json.lastName ? json.lastName : '';
+			this.profileImage = json.profileImage ? json.profileImage : '';
 		}
 	}
 }
