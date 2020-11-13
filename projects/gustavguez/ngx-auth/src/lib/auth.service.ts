@@ -5,10 +5,10 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AuthConfigModel } from './auth-config.model';
 import { AuthUserModel } from './auth-user.model';
 import { AuthLastUserModel } from './auth-last-user.model';
 import { AuthAccessTokenModel } from './auth-access-token.model';
+import { AuthConfigInterface } from './auth-config.interface';
 
 @Injectable({
 	providedIn: 'root',
@@ -18,7 +18,7 @@ export class AuthService {
 	// Models
 	private user: AuthUserModel;
 	private meJsonResponse: any;
-	private config: AuthConfigModel;
+	private config: AuthConfigInterface;
 	private lastUser: AuthLastUserModel;
 	private accessToken: AuthAccessTokenModel;
 
@@ -37,12 +37,16 @@ export class AuthService {
 		this.onUserParsed = new EventEmitter<any>();
 
 		// Default values
-		this.config = new AuthConfigModel();
+		this.config = {};
 	}
 
 	// Methods
-	public setConfig(config: AuthConfigModel): void {
+	public setConfig(config: AuthConfigInterface): void {
 		this.config = config;
+	}
+	
+	public updateConfig(config: AuthConfigInterface): void {
+		this.config = { ...this.config, ...config };
 	}
 
 	public getLastUser(): AuthLastUserModel {

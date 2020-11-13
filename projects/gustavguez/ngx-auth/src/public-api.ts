@@ -3,7 +3,7 @@ export * from './lib/auth.interceptor';
 export * from './lib/auth.guard';
 export * from './lib/auth-user.model';
 export * from './lib/auth-last-user.model';
-export * from './lib/auth-config.model';
+export * from './lib/auth-config.interface';
 export * from './lib/auth-access-token.model';
 export * from './lib/ngx-gustavguez-auth.module';
 export * from './lib/ngx-gustavguez-auth-login/ngx-gustavguez-auth-login.component';
