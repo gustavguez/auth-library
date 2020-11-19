@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { NgxGustavguezCoreModule } from '@gustavguez/ngx-core';
+import { NgxGustavguezApiModule } from '@gustavguez/ngx-api';
 
 import { AuthInterceptor } from './auth.interceptor';
 import { NgxGustavguezAuthLoginComponent } from './ngx-gustavguez-auth-login/ngx-gustavguez-auth-login.component';
@@ -14,7 +15,8 @@ import { NgxGustavguezAuthLoginComponent } from './ngx-gustavguez-auth-login/ngx
 		CommonModule,
 		ReactiveFormsModule,
 		NgxWebstorageModule,
-		NgxGustavguezCoreModule
+		NgxGustavguezCoreModule,
+		NgxGustavguezApiModule
 	],
 	exports: [NgxGustavguezAuthLoginComponent],
 	providers: [

@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ApiService, ApiResponseModel } from '@gustavguez/ngx-core';
+import { ApiService, ApiResponseModel } from '@gustavguez/ngx-api';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -164,7 +164,7 @@ export class AuthService {
 	// Generate a access token
 	public requestMe(): Observable<AuthUserModel> {
 		// Restore root strategy
-		this.apiService.restoreApiResponseStrategyFromDefault();
+		this.apiService.restoreApiResponseStrategy();
 
 		// Do request
 		return this.apiService.fetchData(this.config.oauthMeUri).pipe(
