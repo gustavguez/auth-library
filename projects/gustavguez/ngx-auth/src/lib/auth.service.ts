@@ -88,6 +88,9 @@ export class AuthService {
 			// Set root strategy
 			this.apiService.changeApiResponseStrategy('root');
 
+			// Clear previous token
+			this.apiService.setAccessToken(null);
+
 			//Made object to send
 			const obj: any = {
 				username: loginUsername,
@@ -202,6 +205,9 @@ export class AuthService {
 
 		// Set root strategy
 		this.apiService.changeApiResponseStrategy('root');
+
+		// Clear previous token
+		this.apiService.setAccessToken(null);
 
 		// Request token
 		return this.apiService.createObj(this.config.oauthUri, {
