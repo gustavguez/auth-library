@@ -209,12 +209,20 @@ export class AuthService {
 		// Clear previous token
 		this.apiService.setAccessToken(null);
 
-		// Request token
-		return this.apiService.createObj(this.config.oauthUri, {
+		// Create obj
+		const obj: any = {
 			refresh_token: refreshToken,
 			grant_type: this.config.grantTypeRefresh,
 			client_id: this.config.clientId
-		}).pipe(
+		};
+
+		//Check oauth type
+		if(this.config.oauthType){
+			obj.oauth_type = this.config.oauthType;
+		}
+
+		// Request token
+		return this.apiService.createObj(this.config.oauthUri, obj).pipe(
 			map((response: ApiResponseModel) => {
 				// Check response
 				if (response.data) {
