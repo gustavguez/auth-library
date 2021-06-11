@@ -2,8 +2,6 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { clientCredentials } from './client-credentials';
-
 export const environment = {
 	production: false,
 	api: {
@@ -13,8 +11,8 @@ export const environment = {
 		ME_URI: '/finances/me'
 	},
 	oauth: {
-		CLIENT_ID: clientCredentials.CLIENT_ID,
-		CLIENT_SECRET: clientCredentials.CLIENT_SECRET,
+		CLIENT_ID: '',
+		CLIENT_SECRET: '',
 		GRANT_TYPE: 'password',
 		GRANT_TYPE_REFRESH: 'refresh_tocken'
 	},

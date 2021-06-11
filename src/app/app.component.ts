@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
-import { AuthConfigModel, AuthService, AuthUserModel }  from '../../projects/gustavguez/ngx-auth/src/public-api';
-import { ApiService } from '@gustavguez/ngx-core';
+import { AuthService, AuthUserModel }  from '../../projects/gustavguez/ngx-auth/src/public-api';
+import { ApiService } from '@gustavguez/ngx-api';
 
 @Component({
 	selector: 'app-root',
@@ -29,18 +29,18 @@ export class AppComponent {
 		this.apiService.setApiURL(environment.api.URL);
 
 		// Load auth config
-		this.authService.setConfig(new AuthConfigModel(
-			environment.oauth.GRANT_TYPE,
-			environment.oauth.GRANT_TYPE_REFRESH,
-			environment.oauth.CLIENT_ID,
-			environment.oauth.CLIENT_SECRET,
-			environment.ls.ACCESS_TOKEN,
-			environment.ls.LAST_AVATAR,
-			environment.ls.LAST_USER,
-			environment.api.OAUTH_URI,
-			environment.api.OAUTH_URI,
-			environment.api.ME_URI
-		));
+		this.authService.setConfig({
+			grantType: environment.oauth.GRANT_TYPE,
+			grantTypeRefresh: environment.oauth.GRANT_TYPE_REFRESH,
+			clientId: environment.oauth.CLIENT_ID,
+			clientSecret: environment.oauth.CLIENT_SECRET,
+			accessTokenLsKey: environment.ls.ACCESS_TOKEN,
+			lastMeAvatarLsKey: environment.ls.LAST_AVATAR,
+			lastMeUsernameLsKey: environment.ls.LAST_USER,
+			oauthUri: environment.api.OAUTH_URI,
+			oauthRefreshUri: environment.api.OAUTH_URI,
+			oauthMeUri: environment.api.ME_URI
+		});
 
 		// Watch state
 		this.authService.getOnSessionStateChange().subscribe(() => {
