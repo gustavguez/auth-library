@@ -21,7 +21,7 @@
     "@angular/router": "~12.1.1",
     "@gustavguez/ngx-api": "^1.0.9",
     "@gustavguez/ngx-core": "^1.0.26",
-    "ngx-webstorage": "^6.0.0",
+    "ngx-webstorage": "^8.0.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

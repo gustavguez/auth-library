@@ -1,10 +1,6 @@
 {
   "name": "@gustavguez/ngx-auth",
-  "version": "1.0.14",
-  "peerDependencies": {
-    "@angular/common": "~12.0.4",
-    "@angular/core": "~12.0.4"
-},
+  "version": "1.0.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/gustavguez/auth-library"
@@ -17,7 +13,7 @@
   "dependencies": {
     "@gustavguez/ngx-core": "^1.0.9",
     "@gustavguez/ngx-api": "^1.0.26",
-    "ngx-webstorage": "^6.0.0",    
+    "ngx-webstorage": "^8.0.0", 
     "tslib": "^2.0.0"
   }
 }
