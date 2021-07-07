@@ -15,8 +15,8 @@
       "url" : "http://gustavorodriguez.com.uy"
    },
   "dependencies": {
-    "@gustavguez/ngx-core": "^1.0.8",
-    "@gustavguez/ngx-api": "^1.0.25",
+    "@gustavguez/ngx-core": "^1.0.9",
+    "@gustavguez/ngx-api": "^1.0.26",
     "ngx-webstorage": "^6.0.0",    
     "tslib": "^2.0.0"
   }
