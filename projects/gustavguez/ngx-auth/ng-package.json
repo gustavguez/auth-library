@@ -3,10 +3,5 @@
   "dest": "../../../dist/gustavguez/ngx-auth",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "whitelistedNonPeerDependencies": [
-    "@gustavguez/ngx-api",
-    "@gustavguez/ngx-core",
-    "ngx-webstorage"
-  ]
+  }
 }
